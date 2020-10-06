@@ -5,19 +5,17 @@ name = ''
 surname = ''
 
 file = open("input.txt", "r")
-file1 = open("imagelist.txt", "r")
 lines = file.read().splitlines()
-lines1 = file1.read().splitlines()
 file.close()
-file1.close()
 count = len(lines)
 que = random.randint(0, count-1)
 answ = lines[que]
-que = lines1[que]
+
+que = str(que)+'.jpg'
 
 @bot.message_handler(commands=['start'])
 def start(message):
-		bot.send_message(message.from_user.id, str(que))
+        bot.send_photo(message.from_user.id, open(que, 'rb'))
         timeyou = time.clock()
         
 @bot.message_handler(content_types=['text'])
