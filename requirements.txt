@@ -26,6 +26,7 @@ mcpi==1.1.0
 networkx==2.4
 numpy==1.18.5
 Pillow==7.1.2
+py3minepi==0.0.1.1
 pyparsing==2.4.7
 pyTelegramBotAPI==3.7.3
 python-dateutil==2.8.1
@@ -36,7 +37,6 @@ scikit-image==0.17.2
 scipy==1.4.1
 six==1.14.0
 sqlparse==0.3.1
-telebot==0.0.3
 tifffile==2020.6.3
 urllib3==1.23
 virtualenv==20.0.17
