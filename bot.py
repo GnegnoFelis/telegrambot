@@ -18,12 +18,12 @@ que = lines1[que]
 @bot.message_handler(commands=['start'])
 def start(message):
 		bot.send_message(message.from_user.id, str(que))
-        timeyou = time.clock()
+        timeyou = 0
         
 @bot.message_handler(content_types=['text'])
 def start_welcome(message):
     if message.text == answ:
-        timeyou = time.clock()
+        timeyou = 0
         bot.send_message(message.from_user.id, "Всё верно, напиши своё имя для рейтинга")
         bot.register_next_step_handler(message, get_name); #следующий шаг – функция get_name
     else:
