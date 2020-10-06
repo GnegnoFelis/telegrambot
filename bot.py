@@ -34,4 +34,4 @@ def get_name(message):
     name = message.text
     bot.send_message(message.from_user.id, name + "твоё время ответа: " + str(timeyou) + " сек")
 
-bot.polling(none_stop=False, interval=0)
+bot.polling(none_stop=True, interval=0)
