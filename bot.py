@@ -3,6 +3,7 @@ import telebot, random, time;
 bot = telebot.TeleBot('1253646147:AAGSW1B5VAgD2Sw_Gaa0I5t8WBEKhg4v9B0');
 name = ''
 surname = ''
+timeyou = 0
 
 file = open("input.txt", "r")
 file1 = open("imagelist.txt", "r")
@@ -38,4 +39,4 @@ def get_surname(message):
     surname = message.text
     bot.send_message(message.from_user.id, name + ' ' + surname + 'твоё время ответа: ' + timeyou + ' сек')
 
-bot.polling(none_stop=True, interval=0)
+bot.polling(none_stop=False, interval=0)
