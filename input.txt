@@ -1,2 +1,3 @@
-Корабль
-Корабль
+ceph
+openstack
+kubernetes
