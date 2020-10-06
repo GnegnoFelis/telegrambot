@@ -1,6 +1,6 @@
 import telebot, random, time;
 from telebot import types
-bot = telebot.TeleBot('1253646147:AAGSW1B5VAgD2Sw_Gaa0I5t8WBEKhg4v9B0', parse_mode=None);
+bot = telebot.TeleBot('1253646147:AAGSW1B5VAgD2Sw_Gaa0I5t8WBEKhg4v9B0');
 bot.polling(none_stop=True, interval=0)
 filename = input.txt
 name = ''
