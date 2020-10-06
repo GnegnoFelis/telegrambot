@@ -19,24 +19,19 @@ que = lines1[que]
 @bot.message_handler(commands=['start'])
 def start(message):
 		bot.send_message(message.from_user.id, str(que))
+		bot.send_message(message.from_user.id, 'Расшифруй ребус')
 
 @bot.message_handler(content_types=['text'])
 def start_welcome(message):
     if message.text == answ:
-        bot.send_message(message.from_user.id, "Всё верно, напиши своё имя для рейтинга")
+        bot.send_message(message.from_user.id, "Всё верно, напиши своё имя и фамилию для рейтинга:)")
         bot.register_next_step_handler(message, get_name); #следующий шаг – функция get_name
     else:
         bot.send_message(message.from_user.id, 'Напиши верный ответ')
 
-def get_name(message): #получаем фамилию
+def get_name(message):
     global name
     name = message.text
-    bot.send_message(message.from_user.id, 'Напиши свою фамилию для рейтинга:)')
-    bot.register_next_step_handler(message, get_surname)
-
-def get_surname(message):
-    global surname
-    surname = message.text
-    bot.send_message(message.from_user.id, name + ' ' + surname + 'твоё время ответа: ' + timeyou + ' сек')
+    bot.send_message(message.from_user.id, name + 'твоё время ответа: ' + timeyou + ' сек')
 
 bot.polling(none_stop=False, interval=0)
