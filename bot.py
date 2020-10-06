@@ -1,5 +1,6 @@
 from telebot import types
-import telebot, random, time
+import telebot, random
+from datetime import timedelta, datetime
 bot = telebot.TeleBot('1253646147:AAGSW1B5VAgD2Sw_Gaa0I5t8WBEKhg4v9B0')
 name = ''
 surname = ''
@@ -16,14 +17,18 @@ que = random.randint(0, count-1)
 answ = lines[que]
 que = lines1[que]
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start', 'help'])
 def start(message):
+		global now
 		bot.send_message(message.from_user.id, str(que))
 		bot.send_message(message.from_user.id, "Расшифруй ребус")
+		now = datetime.now()
 
 @bot.message_handler(content_types=['text'])
 def start_welcome(message):
+	global now1
     if message.text == answ:
+		now1 = "Всего: {} секунд".format((datetime.now() - now).total_seconds())
         bot.send_message(message.from_user.id, "Всё верно, напиши своё имя и фамилию для рейтинга:)")
         bot.register_next_step_handler(message, get_name); #следующий шаг – функция get_name
     else:
@@ -32,6 +37,6 @@ def start_welcome(message):
 def get_name(message):
     global name
     name = message.text
-    bot.send_message(message.from_user.id, name + "твоё время ответа: " + str(timeyou) + " сек")
+    bot.send_message(message.from_user.id, name + " твоё время ответа: " + str(now1) + " сек")
 
 bot.polling(none_stop=True, interval=0)
