@@ -1,7 +1,6 @@
 from telebot import types
 import telebot, random, time;
 bot = telebot.TeleBot('1253646147:AAGSW1B5VAgD2Sw_Gaa0I5t8WBEKhg4v9B0');
-bot.polling(none_stop=True, interval=0)
 name = ''
 surname = ''
 
@@ -38,3 +37,5 @@ def get_surname(message):
     global surname
     surname = message.text
     bot.send_message(message.from_user.id, name + ' ' + surname + 'твоё время ответа: ' + timeyou + ' сек')
+
+bot.polling(none_stop=True, interval=0)
