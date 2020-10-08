@@ -1,7 +1,7 @@
 from telebot import types
 import telebot, random
 from datetime import timedelta, datetime
-bot = telebot.TeleBot('1253646147:AAGSW1B5VAgD2Sw_Gaa0I5t8WBEKhg4v9B0')
+bot = telebot.TeleBot()
 name = ''
 surname = ''
 timeyou = 0
